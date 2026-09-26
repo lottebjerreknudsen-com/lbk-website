@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://andrewdenty.github.io',
-  base: '/lbk-website',
+  site: 'https://lottebjerreknudsen.com',
   integrations: [sitemap()],
 });

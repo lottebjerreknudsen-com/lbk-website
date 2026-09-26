@@ -16,16 +16,13 @@ npm run preview  # preview the production build locally
 
 ## Configuration
 
-Before deploying, update `astro.config.mjs`:
+The site is served from the root of its custom domain,
+[lottebjerreknudsen.com](https://lottebjerreknudsen.com), so `astro.config.mjs`
+sets `site` to that domain and has no `base`. Canonical links, hreflang, Open
+Graph URLs and the sitemap are all derived from it.
 
-```js
-export default defineConfig({
-  site: 'https://your-github-username.github.io',
-  base: '/lbk-website',
-});
-```
-
-Replace `your-github-username` with your GitHub username.
+The custom domain itself is configured in the repo's **Settings → Pages**
+(deploys go through GitHub Actions, so no `CNAME` file is needed).
 
 ## Deployment
 
