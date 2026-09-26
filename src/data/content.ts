@@ -80,7 +80,6 @@ export const scholar = 'https://scholar.google.com/citations?user=s-0BmrMAAAAJ&h
 const ANDREW_SITE = 'https://andrewdenty.com';
 const LEGAL_ENTITIES = [
   'Lotte Bjerre Knudsen ApS · CVR 46695763',
-  'Angel Bjerre Holding ApS · CVR 46687108',
 ];
 
 export const content: Record<Locale, PageContent> = {
