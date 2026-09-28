@@ -28,7 +28,10 @@
   --col-gap: clamp(40px, 6vw, 88px); /* awards/media two-column gap */
 
   /* Type scale --------------------------------------------------------- */
-  --fs-display: clamp(44px, 8.6vw, 96px); /* hero wordmark */
+  /* Hero wordmark — sized against the portrait rather than the viewport, so
+     KNUDSEN (≈7.2em from the text edge, indent included) runs ~30% into the
+     photo at every desktop width and stops short of Lotte's face. */
+  --fs-display: clamp(44px, 9vw - 11px, 96px);
   --fs-display-footer: clamp(42px, 7vw, 83px); /* footer wordmark */
   --fs-h2: 30px;
   --fs-statement: clamp(21px, 2.3vw, 24px);
@@ -438,11 +441,11 @@ section {
 }
 
 .hero__line--2 {
-  padding-left: 1.875em;
+  padding-left: 1.4em;
 }
 
 .hero__line--3 {
-  padding-left: 4.375em;
+  padding-left: 2.8em;
 }
 
 /* Hero intro — the crossfading callouts that replaced the role tagline.
@@ -1172,6 +1175,8 @@ section {
 
   :root {
     --fs-statement: 18px;
+    /* Stacked under the photo there's nothing to overlap, so it can run larger */
+    --fs-display: clamp(44px, 8.6vw, 96px);
   }
 
   .nav__brand {
@@ -1313,6 +1318,20 @@ section {
 
   .footer__nav ul {
     text-align: left;
+  }
+}
+
+/* Phones: three facts don't fit side by side and wrap 2 + 1, so they stack
+   instead — each value kept with its label behind a pink accent rule. */
+@media (max-width: 560px) {
+  .about__facts {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .fact {
+    border-left: 2px solid var(--pink);
+    padding-left: 14px;
   }
 }
 
