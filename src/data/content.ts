@@ -86,9 +86,9 @@ export const content: Record<Locale, PageContent> = {
   en: {
     htmlLang: 'en',
     meta: {
-      title: 'Lotte Bjerre Knudsen — Scientist & Keynote Speaker',
+      title: 'Lotte Bjerre Knudsen | GLP-1 Scientist and Lasker Award Winner',
       description:
-        'Lotte Bjerre Knudsen — the scientist whose three decades of work helped unlock the GLP-1 medicines reshaping how the world treats obesity and diabetes. Scientist, communicator, and keynote speaker.',
+        'Lotte Bjerre Knudsen — the scientist whose three decades of work helped unlock the GLP-1 medicines reshaping how the world treats obesity and diabetes.',
     },
     langAria: 'Language',
     nav: [
@@ -454,9 +454,9 @@ export const content: Record<Locale, PageContent> = {
   da: {
     htmlLang: 'da',
     meta: {
-      title: 'Lotte Bjerre Knudsen — Forsker & Foredragsholder',
+      title: 'Lotte Bjerre Knudsen | GLP-1-forsker og modtager af Laskerprisen',
       description:
-        'Lotte Bjerre Knudsen — forskeren, hvis tre årtiers arbejde var med til at åbne for GLP-1-lægemidlerne, der ændrer behandlingen af fedme og diabetes verden over. Forsker, formidler og foredragsholder.',
+        'Lotte Bjerre Knudsen — forskeren, hvis tre årtiers arbejde var med til at åbne for GLP-1-lægemidlerne, der ændrer behandlingen af fedme og diabetes verden over.',
     },
     langAria: 'Sprog',
     nav: [
