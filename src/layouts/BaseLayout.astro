@@ -27,13 +27,19 @@ const ogImageURL = new URL(`${base}/og-image.jpg`, siteUrl).toString();
 // down to the tagline, which dropped Lotte's name from shared links.
 const name = 'Lotte Bjerre Knudsen';
 
+// One identity for Lotte across both language versions, so search engines
+// read the English and Danish pages as the same person and the same site.
+const personId = `${enUrl}#person`;
+const websiteId = `${enUrl}#website`;
+
 const personJsonLd = {
-  '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': personId,
   name,
-  url: lang === 'da' ? daUrl : enUrl,
+  alternateName: 'Lotte Knudsen',
+  url: enUrl,
   image: ogImageURL,
-  description: c.meta.description,
+  description: c.meta.bio,
   jobTitle: 'Honorary Professor in Translational Medicine',
   affiliation: { '@type': 'CollegeOrUniversity', name: 'Aarhus University' },
   alumniOf: [
@@ -49,7 +55,28 @@ const personJsonLd = {
     'https://www.linkedin.com/in/lotte-bjerre-knudsen/',
     'https://x.com/lotte_bjerre',
     scholarUrl,
+    'https://orcid.org/0000-0002-2439-7116',
+    'https://www.wikidata.org/wiki/Q58586406',
   ],
+};
+
+// Declares this domain as Lotte's own site: the signal Google uses to tell an
+// official website apart from the press and reference pages written about her.
+const websiteJsonLd = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  name,
+  alternateName: ['Lotte Bjerre Knudsen Official Website', 'lottebjerreknudsen.com'],
+  url: enUrl,
+  description: c.meta.description,
+  inLanguage: ['en', 'da'],
+  about: { '@id': personId },
+  publisher: { '@id': personId },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [websiteJsonLd, personJsonLd],
 };
 ---
 
@@ -71,7 +98,7 @@ const personJsonLd = {
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={name} />
-    <meta property="og:description" content={c.meta.description} />
+    <meta property="og:description" content={c.meta.bio} />
     <meta property="og:locale" content={lang === 'da' ? 'da_DK' : 'en'} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
@@ -81,10 +108,10 @@ const personJsonLd = {
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={name} />
-    <meta name="twitter:description" content={c.meta.description} />
+    <meta name="twitter:description" content={c.meta.bio} />
     <meta name="twitter:image" content={ogImageURL} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

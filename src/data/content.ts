@@ -36,7 +36,9 @@ export interface MediaGroup {
 
 export interface PageContent {
   htmlLang: string;
-  meta: { title: string; description: string };
+  /** `description` is the search-result snippet; `bio` describes Lotte herself
+   *  and is used for link previews and the Person structured data. */
+  meta: { title: string; description: string; bio: string };
   langAria: string;
   nav: NavItem[];
   callouts: { label: string; items: { text: string }[] };
@@ -86,9 +88,10 @@ export const content: Record<Locale, PageContent> = {
   en: {
     htmlLang: 'en',
     meta: {
-      title: 'Lotte Bjerre Knudsen | GLP-1 Scientist and Lasker Award Winner',
+      title: 'Lotte Bjerre Knudsen | Official Website | GLP-1 Scientist',
       description:
-        'Lotte Bjerre Knudsen — the scientist whose three decades of work helped unlock the GLP-1 medicines reshaping how the world treats obesity and diabetes.',
+        'The official website of Lotte Bjerre Knudsen, the Lasker Award-winning scientist whose work helped unlock the GLP-1 medicines for obesity and diabetes.',
+      bio: 'Lotte Bjerre Knudsen — the scientist whose three decades of work helped unlock the GLP-1 medicines reshaping how the world treats obesity and diabetes.',
     },
     langAria: 'Language',
     nav: [
@@ -278,6 +281,17 @@ export const content: Record<Locale, PageContent> = {
           head: 'Press',
           items: [
             {
+              title: 'Financial Times',
+              meta: 'Lunch with the FT: “The food industry has to listen”',
+              tag: 'Interview',
+              links: [
+                {
+                  label: 'Read',
+                  href: 'https://www.ft.com/content/c920d800-a22e-4f4e-a592-5fc361b0955e',
+                },
+              ],
+            },
+            {
               title: 'Monocle',
               meta: 'The scientist behind the weight-loss jabs',
               tag: 'Magazine',
@@ -454,9 +468,10 @@ export const content: Record<Locale, PageContent> = {
   da: {
     htmlLang: 'da',
     meta: {
-      title: 'Lotte Bjerre Knudsen | GLP-1-forsker og modtager af Laskerprisen',
+      title: 'Lotte Bjerre Knudsen | Officiel hjemmeside | GLP-1-forsker',
       description:
-        'Lotte Bjerre Knudsen — forskeren, hvis tre årtiers arbejde var med til at åbne for GLP-1-lægemidlerne, der ændrer behandlingen af fedme og diabetes verden over.',
+        'Officiel hjemmeside for Lotte Bjerre Knudsen, Laskerpris-modtageren og forskeren, hvis arbejde var med til at åbne for GLP-1-lægemidlerne mod fedme og diabetes.',
+      bio: 'Lotte Bjerre Knudsen — forskeren, hvis tre årtiers arbejde var med til at åbne for GLP-1-lægemidlerne, der ændrer behandlingen af fedme og diabetes verden over.',
     },
     langAria: 'Sprog',
     nav: [
@@ -643,6 +658,17 @@ export const content: Record<Locale, PageContent> = {
         {
           head: 'Presse',
           items: [
+            {
+              title: 'Financial Times',
+              meta: 'Lunch with the FT: “Fødevareindustrien er nødt til at lytte”',
+              tag: 'Interview',
+              links: [
+                {
+                  label: 'Læs',
+                  href: 'https://www.ft.com/content/c920d800-a22e-4f4e-a592-5fc361b0955e',
+                },
+              ],
+            },
             {
               title: 'Monocle',
               meta: 'Forskeren bag vægttabsmidlerne',
