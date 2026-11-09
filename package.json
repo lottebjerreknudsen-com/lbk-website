@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/epilogue": "^5.3.0",
+    "@fontsource-variable/work-sans": "^5.3.0",
     "astro": "^7.0.4"
   }
 }
