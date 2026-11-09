@@ -17,8 +17,8 @@
   --line: #6f6c70; /* hairline dividers */
 
   /* Type families ------------------------------------------------------ */
-  --font-display: 'Epilogue', system-ui, -apple-system, sans-serif;
-  --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
+  /* --font-display (Epilogue) and --font-body (Work Sans) are defined by the
+     self-hosted font setup in astro.config.mjs, via <Font /> in BaseLayout. */
 
   /* Layout ------------------------------------------------------------- */
   --content: 1100px; /* body + header content width  (170px gutters @1440) */
@@ -489,13 +489,16 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 0;
+  /* Each dot is a 24px tap target with the mark centred in it, so pull the row
+     back 4px to keep the active (16px) mark flush with the text below. */
+  margin-left: -4px;
 }
 
 .hero__dot {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
+  width: 24px; /* 24×24 is the minimum comfortable tap target */
   height: 24px;
   padding: 0;
   border: 0;
@@ -1204,14 +1207,19 @@ section {
     padding: 4px var(--gutter) 28px;
     opacity: 0;
     pointer-events: none;
+    /* Hidden for real while closed, so its links can't be tabbed to or read
+       out. The delay lets the fade finish before it disappears. */
+    visibility: hidden;
     transform: translateY(-6px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
   }
 
   .nav__mobile.is-open {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
     transform: translateY(0);
+    transition-delay: 0s;
   }
 
   .nav__mobile-list {

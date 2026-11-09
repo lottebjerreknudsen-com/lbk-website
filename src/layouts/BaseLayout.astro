@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { Font } from 'astro:assets';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { content, scholar as scholarUrl, type Locale } from '../data/content';
@@ -113,12 +114,12 @@ const jsonLd = {
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Self-hosted fonts: these set --font-display and --font-body.
+         Deliberately not preloaded: on a slow connection a preloaded font
+         competes with the hero photo and delays it by about 0.2s. Text shows
+         in a size-matched fallback for a moment, then swaps, as it always has. -->
+    <Font cssVariable="--font-display" />
+    <Font cssVariable="--font-body" />
 
     <!-- Cloudflare Web Analytics -->
     <script
